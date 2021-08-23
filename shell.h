@@ -21,11 +21,12 @@ int _putchar(char c);
 int _strcmp(char *s1, char *s2);
 char *_getenv(const char *name);
 char *grab_name(char *full_line);
+int shell_loop(int argc, char **argv);
 
-typedef struct func_finder
+typedef struct builtins
 {
 	char *argv;
 	int(*func)();
 
-} func_finder;
+} builtins;
 #endif

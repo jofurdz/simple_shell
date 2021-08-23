@@ -6,27 +6,33 @@
  *Return: 0 
  */
 
-int main(void)
+/*int main(void)*/
+int main(int argc, char **argv)
+{
+	shell_loop(argc, argv);
+	return(0);
+}
+
+int shell_loop(int argc, char **argv)
 {
 	int i = 0;
 	char *buffer = NULL;
-	char **argv;
-	size_t buff_length = 0;
-	ssize_t userinput;
+	size_t buff_length;
+	int userinput;
+	char **path_tokens;
+	(void) argc;
 
+	buffer = NULL;
 	while (1)
 	{
 		printf("$ ");
 		userinput = getline(&buffer, &buff_length, stdin);
 		if (userinput < 0)
-			return (-1);
+			break;
 		argv = tokenize(buffer);
-		while (argv[i])
-		{
-			printf("%s\n", argv[i]);
-			i++;
-		}
-		if (!_strcmp(argv[0], "exit"))
+		if (argv[0] == NULL) /** new **/
+			continue;
+		if (_strcmp(argv[0], "exit") == 0)
 		{
 			break;
 		}
