@@ -17,10 +17,9 @@ char *_getenv(const char *name)
 		for (line_content = 0;
 		     environ[line_number][line_content] != '='; line_content++)
 		{
-			if (_strcmp(*grab_name(environ[line_number]), "PATH") ==
-			    0)
+			if (_strcmp(grab_name(environ[line_number]), "PATH") == 0)
 			{
-				return (*env_tokenize(env_path);
+				return (*env_tokenize(env_path));
 			}
 			return (NULL);
 		}
@@ -41,7 +40,7 @@ char *grab_name(char *full_line)
 	{
 		length = i;
 	}
-	after_name = malloc(sizeof(char) * length)
+	after_name = malloc(sizeof(char) * length);
 
 		for (i; i < length; i++)
 	{
@@ -58,7 +57,7 @@ char **env_tokenize(char *input_str)
 
 	for (i = 0; input_str[i] != '\0'; i++)
 	{
-		if (input_str[i] = ":")
+		if (input_str[i] = ':')
 		{
 			token_count++;
 		}
@@ -72,15 +71,15 @@ char **env_tokenize(char *input_str)
 	}
 	else
 	{
-		tokenize = strtok(input_str, ':');
+		tokenize = strtok(input_str, ":");
 
 		while (token_incr < (token_count + 1))
 		{
-			env_tokens[] = tokenize;
+			env_tokens[token_count] = tokenize;
 			tokenize = strtok(NULL, ":");
 			token_incr++;
 		}
-		*env_tokens[] = NULL;
+		env_tokens[token_count] = NULL;
 	}
 	return (env_tokens);
 }
