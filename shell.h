@@ -21,11 +21,18 @@ int _putchar(char c);
 int _strcmp(char *s1, char *s2);
 char **_get_env(char *env);
 int shell_loop(int argc, char **argv);
+int sh_exit(char **argv, char *buffer);
+int sh_env(void);
+int sh_setenv(char **argv);
+int sh_unsetenv(char **argv);
+int sh_cd(char **argv);
+int sh_alias(char **argv);
+int function_finder(char **argv, char *buffer);
 
 typedef struct builtins
 {
 	char *argv;
-	int(*func)();
+	int (*func)();
 
 } builtins;
 #endif

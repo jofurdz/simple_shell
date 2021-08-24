@@ -19,10 +19,12 @@ char **_get_env(char *env)
 			if (environ[line][content] == env[content])
 			{
 				/* we've hit the end of our search string */
-				if (env[content + 1] == '\0' && environ[line][content + 1] == '=')
+				if (env[content + 1] == '\0' &&
+				    environ[line][content + 1] == '=')
 				{
 					/* duplicate everything past the equals */
-					name = _strdup(&(environ[line][content + 2]));
+					name = _strdup(
+						&(environ[line][content + 2]));
 					/* parse and return */
 					return (_env_parser(name));
 				}
@@ -66,7 +68,7 @@ char **_env_parser(char *name)
 			tokenize = strtok(NULL, ":");
 			token_inc++;
 		}
-	p[token_inc] = NULL;
+		p[token_inc] = NULL;
 	}
 	free(namestore);
 	return (p);

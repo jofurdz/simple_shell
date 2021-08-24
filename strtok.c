@@ -6,7 +6,7 @@
  */
 
 char **tokenize(char *input_str)
-{	
+{
 	int i;
 	int token_incr = 0;
 	int token_count = 0;
