@@ -13,14 +13,13 @@
 extern char **environ;
 
 char **tokenize(char *input_str);
-char **env_tokenize(char *input_str);
+char **_env_parser(char *name);
 char *_strdup(char *str);
 void _puts(char *str);
 int _strlen(char *s);
 int _putchar(char c);
 int _strcmp(char *s1, char *s2);
-char *_getenv(const char *name);
-char *grab_name(char *full_line);
+char **_get_env(char *env);
 int shell_loop(int argc, char **argv);
 
 typedef struct builtins

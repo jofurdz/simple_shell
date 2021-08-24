@@ -1,85 +1,73 @@
 #include "shell.h"
-
 /**
- * _getenv - 
- *
- * @name: name of environmental variable
- *Return:  
- */
-
-char *_getenv(const char *name)
+ * _get_env- gets the current env
+ * @env: the env
+ * Return: _env_parser function on success, NULL on failure
+**/
+char **_get_env(char *env)
 {
-	int line_content, line_number;
-	char *env_path = NULL;
-
-	for (line_number = 0; environ[line_number] != NULL; line_number++)
+	int content;
+	int line;
+	char *name = NULL;
+	/* iterate each line in the environment */
+	for (line = 0; environ[line] != NULL; line++)
 	{
-		for (line_content = 0;
-		     environ[line_number][line_content] != '='; line_content++)
+		/* iterate each letter until we see a = */
+		for (content = 0; environ[line][content] != '='; content++)
 		{
-			if (_strcmp(grab_name(environ[line_number]), "PATH") == 0)
+			/* check that this env var name is what we're looking for */
+			if (environ[line][content] == env[content])
 			{
-				return (*env_tokenize(env_path));
+				/* we've hit the end of our search string */
+				if (env[content + 1] == '\0' && environ[line][content + 1] == '=')
+				{
+					/* duplicate everything past the equals */
+					name = _strdup(&(environ[line][content + 2]));
+					/* parse and return */
+					return (_env_parser(name));
+				}
 			}
-			return (NULL);
 		}
 	}
+	return (NULL);
 }
 
 /**
- * 
- * 
- */
+ * _env_parser- tokenizes the PATH
+ * @name: the full PATH seperated by :'s
+ * Return: an array of strings
+**/
 
-char *grab_name(char *full_line)
+char **_env_parser(char *name)
 {
-	int i = 0, length;
-	char *after_name;
+	int token_inc;
+	int tokencount;
+	char *tokenize = NULL;
+	int i;
+	char **p = NULL;
+	char *namestore = name;
 
-	for (i = 0; full_line[i] != '='; i++)
+	tokencount = 0;
+	for (i = 0; name[i] != '\0'; i++)
 	{
-		length = i;
-	}
-	after_name = malloc(sizeof(char) * length);
-
-		for (i; i < length; i++)
-	{
-		after_name[i] = full_line[i];
-	}
-	return (after_name);
-}
-
-char **env_tokenize(char *input_str)
-{
-	int token_incr = 0, i, token_count = 0;
-	char **env_tokens;
-	char *tokenize;
-
-	for (i = 0; input_str[i] != '\0'; i++)
-	{
-		if (input_str[i] = ':')
+		if (name[i] == ':')
 		{
-			token_count++;
+			tokencount++;
 		}
 	}
-
-	env_tokens = malloc(sizeof(char) * token_count + 2);
-
-	if (env_tokens == NULL)
+	p = malloc(sizeof(char *) * (tokencount + 2));
+	if (p != NULL)
 	{
-		return (NULL);
-	}
-	else
-	{
-		tokenize = strtok(input_str, ":");
-
-		while (token_incr < (token_count + 1))
+		token_inc = 0;
+		tokenize = strtok(name, ":");
+		while (token_inc < (tokencount + 1))
 		{
-			env_tokens[token_count] = tokenize;
+			p[token_inc] = _strdup(tokenize);
 			tokenize = strtok(NULL, ":");
-			token_incr++;
+			token_inc++;
 		}
-		env_tokens[token_count] = NULL;
+	p[token_inc] = NULL;
 	}
-	return (env_tokens);
+	free(namestore);
+	return (p);
 }

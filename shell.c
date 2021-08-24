@@ -32,6 +32,8 @@ int shell_loop(int argc, char **argv)
 		argv = tokenize(buffer);
 		if (argv[0] == NULL) /** new **/
 			continue;
+		path_tokens = _get_env("PATH");
+		printf("%s\n", path_tokens[1]);
 		if (_strcmp(argv[0], "exit") == 0)
 		{
 			break;
