@@ -20,12 +20,12 @@ int function_finder(char **argv, char *buffer)
 		{
 			sh_exit(argv, buffer);
 			return (1);
-		}
+		} /* runs through our struct */
 		for (i = 0; arr[i].func; i++)
 		{
 			/* iterating through the struct to find a match for the input */
 			if (_strcmp(argv[0], arr[i].argv) == 0)
-			{
+			{ /* runs the function that matches and returns 1 */
 				arr[i].func();
 				return (1);
 			}

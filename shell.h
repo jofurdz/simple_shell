@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <dirent.h>
 
 extern char **environ;
 
@@ -28,6 +29,9 @@ int sh_unsetenv(char **argv);
 int sh_cd(char **argv);
 int sh_alias(char **argv);
 int function_finder(char **argv, char *buffer);
+char *_strcat(char *dest, char *src);
+char *exe_maker(char *store, char **argv);
+char *dir(char **argv, char **path_tokens);
 
 typedef struct builtins
 {
