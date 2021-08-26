@@ -50,9 +50,9 @@ char *exe_maker(char *store, char **argv)
 	char *command;
 
 	/* adding a slash to first string */
-	slash = _strcat(store, "/");
+	slash = str_concat(store, "/");
 	/* concatenates both slash and argv strings */
-	command = _strcat(slash, argv[0]);
+	command = str_concat(slash, argv[0]);
 
 	free(slash);
 	return (command);
