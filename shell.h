@@ -13,6 +13,7 @@
 
 extern char **environ;
 
+int execute(char *xecutable, char **argv);
 char **tokenize(char *input_str);
 char **_env_parser(char *name);
 char *_strdup(char *str);

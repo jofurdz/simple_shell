@@ -36,6 +36,7 @@ int main(void)
 		}
 		path_tokens = _get_env("PATH");
 		executable = dir(argv, path_tokens);
+		execute(executable, argv);
 		free(argv);
 	}
 	free(buffer);

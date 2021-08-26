@@ -57,3 +57,24 @@ char *exe_maker(char *store, char **argv)
 	free(slash);
 	return (command);
 }
+
+int execute(char *xecutable, char **argv)
+{
+	pid_t pid;
+
+	pid = fork();
+
+	if (pid == -1)
+	{
+		perror("Fork failed\n");
+	}
+	if (pid == 0)
+	{
+		execve(xecutable, argv, environ);
+	}
+	else
+	{
+		wait(NULL);
+	}
+	return (0);
+}
