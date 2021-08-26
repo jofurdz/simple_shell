@@ -25,13 +25,17 @@ int main(void)
 		}
 		userinput = getline(&buffer, &buff_length, stdin);
 		if (userinput < 0)
-			return (-1);
+			break;
 		argv = tokenize(buffer);
-		if (function_finder(argv, buffer) == 1)
+		if (argv[0] == NULL)
 			continue;
+		if (function_finder(argv, buffer) == 1)
+		{
+			free(argv);
+			continue;
+		}
 		path_tokens = _get_env("PATH");
 		executable = dir(argv, path_tokens);
-		printf("executable is = %s\n", executable);
 		free(argv);
 	}
 	free(buffer);
