@@ -12,7 +12,7 @@
 #include <dirent.h>
 
 extern char **environ;
-
+int sh_env(void);
 int execute(char *executable, char **argv);
 char **tokenize(char *input_str);
 char **_env_parser(char *name);
@@ -29,5 +29,10 @@ char *str_concat(char *s1, char *s2);
 char *exe_maker(char *store, char **argv);
 char *dir(char **argv, char **path_tokens);
 int everything_free(char **pointer_array);
+
+typedef struct builtins {
+	char *argv;
+	int (*func)();
+} builtins;
 
 #endif

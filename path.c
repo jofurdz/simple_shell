@@ -29,10 +29,6 @@ char **_get_env(char *env)
 					return (_env_parser(name));
 				}
 			}
-			else /*this is new in case it breaks something*/
-			{
-				break;
-			}
 		}
 	}
 	return (NULL);
