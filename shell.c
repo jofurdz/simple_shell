@@ -1,9 +1,8 @@
 #include "shell.h"
 
 /**
- * main - shell
- *
- *Return: 0 
+ * main - shell loop
+ * Return: 0
  */
 
 int main(void)
@@ -22,6 +21,10 @@ int main(void)
 		{
 			write(STDOUT_FILENO, money_folder,
 			      _strlen(money_folder));
+		}
+		else
+		{
+			break;
 		}
 		userinput = getline(&buffer, &buff_length, stdin);
 		if (userinput < 0)

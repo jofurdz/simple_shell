@@ -1,40 +1,9 @@
 #include "shell.h"
 
 /**
- * _putchar - puts character 
- *
- * @c: char to be printed 
- *
- *Return: 1 on success, -1 on failure 
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * strlen - measures the length of a strength
- *
- * @s: pointer to string
- *
- *Return: length of string 
- */
-
-int _strlen(char *s)
-{
-	int length = 0;
-	while (*s++)
-	{
-		length++;
-	}
-	return (length);
-}
-
-/**
- * _puts - prints a string
- * @str: pointer to string
- */
+* _puts- prints a string
+* @str: pointer to string
+**/
 
 void _puts(char *str)
 {
@@ -48,11 +17,10 @@ void _puts(char *str)
 }
 
 /**
- * _strdup - returns a pointer to a newly allocated space in memory
- * @str: string to be allocated
- *
- *Return: 0
- */
+* _strdup- returns a pointer to a newly allocated space in memory
+* @str: string to be allocated
+* Return: 0
+**/
 char *_strdup(char *str)
 {
 	char *x;
@@ -78,11 +46,11 @@ char *_strdup(char *str)
 }
 
 /**
-* _strcmp - compares two strings
+* _strcmp- compares two strings
 * @s1: string to be compared
 * @s2: string to be compared
-*Return: 0
-*/
+* Return: 0
+**/
 int _strcmp(char *s1, char *s2)
 {
 	while (*s1 && *s1 == *s2)
@@ -94,13 +62,11 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * str_concat - concatenates strings
- *
- * @s1: string to be linked
- * @s2: string to be linked
- *
- * Return: 0
- */
+* str_concat- concatenates strings
+* @s1: string to be linked
+* @s2: string to be linked
+* Return: 0
+**/
 char *str_concat(char *s1, char *s2)
 {
 	char *blah;
@@ -140,9 +106,10 @@ char *str_concat(char *s1, char *s2)
 }
 
 /**
- *
- *
- */
+* everything_free- frees arrays of pointers
+* @pointer_array: an array of pointers to free
+* Return: void
+**/
 int everything_free(char **pointer_array)
 {
 	int i = 0;

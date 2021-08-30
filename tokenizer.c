@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- * 
- * 
- * 
- */
+* tokenize- makes the user input into an array of strings
+* @input_str: the user input, a string to be tokenized
+* Return: argv, the tokenized user input
+**/
 
 char **tokenize(char *input_str)
 {

@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
- * _get_env- gets the current env
- * @env: the env
- * Return: _env_parser function on success, NULL on failure
+ * _get_env- gets the path from the env
+ * @env: the environment
+ * Return: _env_parser funtion on success and NULL upon failure
 **/
 char **_get_env(char *env)
 {
@@ -29,27 +29,30 @@ char **_get_env(char *env)
 					return (_env_parser(name));
 				}
 			}
+			else /*this is new in case it breaks something*/
+			{
+				break;
+			}
 		}
 	}
 	return (NULL);
 }
 
 /**
- * _env_parser- tokenizes the PATH
- * @name: the full PATH seperated by :'s
- * Return: an array of strings
+ * _env_parser- tokenizes the path
+ * @name: the path separated by :'s
+ * Return: an array of path tokens
 **/
 
 char **_env_parser(char *name)
 {
-	int token_inc;
-	int tokencount;
+	int token_inc = 0;
+	int tokencount = 0;
 	char *tokenize = NULL;
 	int i;
-	char **p = NULL;
+	char **brapp = NULL;
 	char *namestore = name;
 
-	tokencount = 0;
 	for (i = 0; name[i] != '\0'; i++)
 	{
 		if (name[i] == ':')
@@ -57,19 +60,18 @@ char **_env_parser(char *name)
 			tokencount++;
 		}
 	}
-	p = malloc(sizeof(char *) * (tokencount + 2));
-	if (p != NULL)
+	brapp = malloc(sizeof(char *) * (tokencount + 2));
+	if (brapp != NULL)
 	{
-		token_inc = 0;
 		tokenize = strtok(name, ":");
 		while (token_inc < (tokencount + 1))
 		{
-			p[token_inc] = _strdup(tokenize);
+			brapp[token_inc] = _strdup(tokenize);
 			tokenize = strtok(NULL, ":");
 			token_inc++;
 		}
-		p[token_inc] = NULL;
+		brapp[token_inc] = NULL;
 	}
 	free(namestore);
-	return (p);
+	return (brapp);
 }
