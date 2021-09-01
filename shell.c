@@ -7,7 +7,6 @@
 
 int main(void)
 {
-	int i = 0;
 	char *money_folder = "$ ";
 	char *buffer = NULL;
 	char **argv, **path_tokens;

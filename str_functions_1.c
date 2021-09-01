@@ -90,7 +90,7 @@ char *_strcat(char *dest, char *src)
 * @pointer_array: an array of pointers to free
 * Return: void
 **/
-int everything_free(char **pointer_array)
+void everything_free(char **pointer_array)
 {
 	int i = 0;
 

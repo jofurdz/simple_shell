@@ -12,7 +12,6 @@ char **tokenize(char *input_str)
 	int token_count = 0;
 	char **argv = NULL;
 	char *tokenize = NULL;
-	int j;
 
 	strtok(input_str, "\n");
 	for (i = 0; input_str[i] != '\0'; i++)
