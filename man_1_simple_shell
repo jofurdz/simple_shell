@@ -4,3 +4,33 @@
 - A simple unix command interpreter.
 .SH SYNOPSIS
 .B ./hsh
+.SH DESCRIPTION
+Simple shell made to Holberton's standards. Contains basic features and functions found on shell programs.
+
+.SS OVERVIEW
+This shell is an executable that reads lines from the prompt, interprets them, and generally executes other commands. It runs by compiling all .c files in the repository to create an executable
+
+.SH MODES
+.B hsh
+Interactive mode
+.SS
+EXAMPLE:
+$ ls -l
+.B ./hsh
+Non-interactive mode
+.SS
+EXAMPLE:
+$ echo "ls -l" | ./hsh
+
+.SH BUILT-IN COMMANDS
+.B env
+- prints environment
+.B exit
+-exits the shell
+
+.SH SEE ALSO
+.I sh(1), Betty(1)
+.SH BUGS
+No known bugs, please report any you may find
+.SH AUTHOR(S)
+Nikki Jo Ford, Tyler Mclure
