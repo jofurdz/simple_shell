@@ -25,12 +25,13 @@ char **_get_env(char *env);
 int shell_loop(int argc, char **argv);
 int sh_exit(char **argv, char *buffer);
 int function_finder(char **argv, char *buffer);
-char *str_concat(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
 char *exe_maker(char *store, char **argv);
 char *dir(char **argv, char **path_tokens);
 int everything_free(char **pointer_array);
 
-typedef struct builtins {
+typedef struct builtins
+{
 	char *argv;
 	int (*func)();
 } builtins;
