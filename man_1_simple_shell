@@ -1,0 +1,6 @@
+.TH HSH 1 "09 November 2018" "1" "Simple Shell man page"
+.SH NAME
+.B hsh
+- A simple unix command interpreter.
+.SH SYNOPSIS
+.B ./hsh
