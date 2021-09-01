@@ -23,28 +23,21 @@ void _puts(char *str)
 **/
 char *_strdup(char *str)
 {
-	char *x;
-	char *p;
+	char *duplicate = NULL;
+	int i;
 	int len = 0;
 
 	if (str == NULL)
-	{
 		return (NULL);
-	}
-	while (str[len])
-		len++;
-	x = malloc(len + 1);
-	if (x == NULL)
-	{
+	for (len = 0; str[len] != '\0'; len++)
+		;
+	duplicate = malloc((len + 1) * sizeof(char));
+	if (duplicate == NULL)
 		return (NULL);
-	}
-	p = x;
-	while (*str)
-		*p++ = *str++;
-	*p = '\0';
-	return (x);
+	for (i = 0; i <= len; i++)
+		duplicate[i] = str[i];
+return (duplicate);
 }
-
 /**
 * _strcmp- compares two strings
 * @s1: string to be compared
@@ -53,14 +46,17 @@ char *_strdup(char *str)
 **/
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return ((int)(unsigned char)(*s1) - (int)(unsigned char)(*s2));
-}
+	int i = 0, j = 0;
 
+	for (; s1[i] != '\0' || s2[j] != '\0'; i++, j++)
+	{
+		if (s1[i] != s2[j])
+		{
+			return (s1[i] - s2[j]);
+		}
+	}
+return (0);
+}
 /**
 *_strcat- entry point
 *description: concatenates two strings
@@ -70,19 +66,25 @@ int _strcmp(char *s1, char *s2)
 **/
 char *_strcat(char *dest, char *src)
 {
-	int i, j;
+	int a, p, x;
+	char *newcmd = NULL;
 
-	for (i = 0; dest[i] != '\0'; i++)
+	for (p = 0; dest[p] != '\0'; p++)
+	{}
+	for (a = 0; src[a] != '\0'; a++)
+	{}
+	newcmd = malloc(sizeof(char) * (a + p + 1));
+	for (x = 0; x < p; x++)
 	{
+		newcmd[x] = dest[x];
 	}
-	for (j = 0; src[j] != '\0'; i++, j++)
+	for (x = 0; x < a; x++)
 	{
-		dest[i] = src[j];
+		newcmd[x + p] = src[x];
 	}
-dest[i + 1] = '\0';
-return (dest);
+	newcmd[x + p] = '\0';
+	return (newcmd);
 }
-
 /**
 * everything_free- frees arrays of pointers
 * @pointer_array: an array of pointers to free

@@ -63,7 +63,7 @@ char *exe_maker(char *store, char **argv)
 	slash = _strcat(store, "/");
 	/* concatenates both slash and argv strings */
 	command = _strcat(slash, argv[0]);
-
+	free(slash);
 	return (command);
 }
 /**
