@@ -40,7 +40,6 @@ int main(void)
 		path_tokens = _get_env("PATH");
 		executable = dir(argv, path_tokens);
 		execute(executable, argv);
-		free(executable);
 		everything_free(path_tokens);
 		free(argv);
 	}

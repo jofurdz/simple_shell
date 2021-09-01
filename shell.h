@@ -29,7 +29,11 @@ char *_strcat(char *dest, char *src);
 char *exe_maker(char *store, char **argv);
 char *dir(char **argv, char **path_tokens);
 int everything_free(char **pointer_array);
-
+/**
+* struct builtins- stores builtins
+* @argv: tokenized user input
+* @func: string representing a builtin command
+**/
 typedef struct builtins
 {
 	char *argv;

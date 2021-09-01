@@ -11,7 +11,10 @@ int sh_exit(char **argv, char *buffer)
 	free(buffer);
 	exit(0);
 }
-
+/**
+* sh_env- prints the environment
+* Return: 0
+**/
 int sh_env(void)
 {
 	int line, content;

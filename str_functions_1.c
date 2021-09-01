@@ -62,47 +62,25 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
-* str_concat- concatenates strings
-* @s1: string to be linked
-* @s2: string to be linked
-* Return: 0
+*_strcat- entry point
+*description: concatenates two strings
+*@dest: string to copy to
+*@src: string to be copied
+*Return: dest
 **/
-char *str_concat(char *s1, char *s2)
+char *_strcat(char *dest, char *src)
 {
-	char *blah;
-	int length1 = 0, length2 = 0, p, x;
+	int i, j;
 
-	if (s1 == NULL)
+	for (i = 0; dest[i] != '\0'; i++)
 	{
-		s1 = "";
 	}
-	if (s2 == NULL)
+	for (j = 0; src[j] != '\0'; i++, j++)
 	{
-		s2 = "";
+		dest[i] = src[j];
 	}
-	while (s1[length1])
-	{
-		length1++;
-	}
-	while (s2[length2])
-	{
-		length2++;
-	}
-	blah = malloc(length1 + length2 + 1);
-
-	if (blah == NULL)
-	{
-		return (NULL);
-	}
-	for (p = 0; s1[p] != '\0'; p++)
-	{
-		blah[p] = s1[p];
-	}
-	for (x = 0; s2[x] != '\0'; x++)
-	{
-		blah[p + x] = s2[x];
-	}
-	return (blah);
+dest[i + 1] = '\0';
+return (dest);
 }
 
 /**
