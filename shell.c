@@ -21,10 +21,6 @@ int main(void)
 			write(STDOUT_FILENO, money_folder,
 			      _strlen(money_folder));
 		}
-		else
-		{
-			break;
-		}
 		userinput = getline(&buffer, &buff_length, stdin);
 		if (userinput < 0)
 			break;
