@@ -18,7 +18,7 @@ int function_finder(char **argv, char *buffer)
 	};
 	if (argv != NULL)
 	{
-		/* checks exit */
+		/* checks if we  exit */
 		if (_strcmp(argv[0], "exit") == 0)
 		{
 			sh_exit(argv, buffer);

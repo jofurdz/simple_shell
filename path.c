@@ -9,7 +9,7 @@ char **_get_env(char *env)
 	int content;
 	int line;
 	char *name = NULL;
-	/* iterate each line in the environment */
+	/* iterate through each line in the environment */
 	for (line = 0; environ[line] != NULL; line++)
 	{
 		/* iterate each letter until we see a = */

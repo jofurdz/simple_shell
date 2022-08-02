@@ -1,3 +1,23 @@
+![screenshot of shell in action](https://user-images.githubusercontent.com/63303265/182445549-cb4eb826-ec5c-4d7c-a774-c9cbea8be1dc.png)
+
+[Tyler McClure's Linkedin](https://www.linkedin.com/in/tyler-mcclure-2011b21a9/)
+
+[Tyler McClure's Portfolio Project](https://github.com/Scatmandu/portfolio_project)
+
+**About (one of) the authors and our experience with this project**
+
+This project was essentially our final for our first trimester of Holberton. Our goal was to
+implement a shell using C with basic functionality including fetching and printing the ENV
+and ls. We could have implemented many more features (cd being the big one and kind of a white
+whale for this project) but even the most bare-bones implementation was quite the undertaking.
+The most difficult aspect of this project was probably getting our tokenizing function to
+work, which is basically the lynchpin of the entire operation. It not only processes our 
+commands but is also how we parse and display our ENV function. A funny side note about this
+project: I will always remember it because I was hit by a car on my bicycle while working on
+it, resulting in quite the injury. However I don't view this as too terribly negative, as
+like I said, I will never forget it hehe.
+
+
 **Simple Shell**
 
 This simple shell project is for Holberton students that are ending their first semester. After completion of project students should understand how to create a basic shell program.
